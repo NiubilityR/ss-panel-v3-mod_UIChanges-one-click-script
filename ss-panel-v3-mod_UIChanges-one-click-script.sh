@@ -6,7 +6,7 @@
 function install_ss_panel_mod_UIm(){
     yum remove httpd -y
 	yum install unzip zip git -y
-	wget -c --no-check-certificate https://github.com/Taylor000/ss-panel-v3-mod_UIChanges-one-click-script/master/lnmp1.4.zip && unzip lnmp1.4.zip && rm -rf lnmp1.4.zip && cd lnmp1.4 && chmod +x install.sh && ./install.sh lnmp
+	wget -c --no-check-certificate https://github.com/NiubilityR/ss-panel-v3-mod_UIChanges-one-click-script/master/lnmp1.4.zip && unzip lnmp1.4.zip && rm -rf lnmp1.4.zip && cd lnmp1.4 && chmod +x install.sh && ./install.sh lnmp
 	cd /home/wwwroot/
 	cp -r default/phpmyadmin/ .  #复制数据库
 	cd default
@@ -23,7 +23,7 @@ function install_ss_panel_mod_UIm(){
 	chown -R www:www storage
 	chattr +i public/.user.ini
 	#下载lnmp配置文件
-	wget -N -P  /usr/local/nginx/conf/ --no-check-certificate https://github.com/Taylor000/ss-panel-v3-mod_UIChanges-one-click-script/master/nginx.conf
+	wget -N -P  /usr/local/nginx/conf/ --no-check-certificate https://github.com/NiubilityR/ss-panel-v3-mod_UIChanges-one-click-script/master/nginx.conf
 	service nginx restart #重启Nginx
 	mysql -uroot -proot -e"create database sspanel;" 
 	mysql -uroot -proot -e"use sspanel;" 
@@ -69,7 +69,7 @@ function install_centos_ssr(){
 	chmod 0644 /var/swap
 	swapon /var/swap
 	echo '/var/swap   swap   swap   default 0 0' >> /etc/fstab
-	wget https://github.com/Taylor000/ss-panel-v3-mod_UIChanges-one-click-script/master/libsodium-1.0.13.tar.gz
+	wget https://github.com/NiubilityR/ss-panel-v3-mod_UIChanges-one-click-script/master/libsodium-1.0.13.tar.gz
 	tar xf libsodium-1.0.13.tar.gz && cd libsodium-1.0.13
 	./configure && make -j2 && make install
 	echo /usr/local/lib > /etc/ld.so.conf.d/usr_local_lib.conf
@@ -142,7 +142,7 @@ echo -e "\033[33m                                                               
 echo -e "\033[33m=====================================================================\033[0m"
 echo
 Realip=`curl -s http://tools.67cc.cn/Realip/ip.php`;
-pass='blog.67cc.cn';
+pass='1';
 echo -e "你的IP地址是: $Realip " #检查IP
 echo -e "请输入Marisn'blog地址:[\033[32m $pass \033[0m] "
 read inputPass
